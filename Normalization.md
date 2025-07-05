@@ -1,7 +1,6 @@
-# 📘 Normalization Report - NTA Exam Management System
-# 📘 Normalization Report - NTA Exam Management System
-
-## 🧠 What is Normalization?
+#  Normalization
+ 
+## What is Normalization?
 
 **Normalization** is a database design technique that reduces data redundancy and ensures data integrity.  
 This document outlines the normalization process for the **NTA Exam Management System** database, explaining how each table is normalized to its highest normal form — up to **Third Normal Form (3NF)**.  
@@ -18,7 +17,7 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `college_id`
 
-✅ **This relation is in 1NF, 2NF, and 3NF**
+ **This relation is in 1NF, 2NF, and 3NF**
 
 ---
 
@@ -33,13 +32,13 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `student_id`
 
-⚠️ **This relation is in 1NF, 2NF but NOT in 3NF** due to transitive dependency via `email`.
+ **This relation is in 1NF, 2NF but NOT in 3NF** due to transitive dependency via `email`.
 
 ### Decomposition:
-#### ✅ STUDENT1:
+####  STUDENT1:
 - `student_id (PK)`, `email` — **in 3NF**
 
-#### ✅ STUDENT_INFO:
+####  STUDENT_INFO:
 - `email (PK, FK)`, `name`, `dob`, `gender` — **in 3NF**
 
 ---
@@ -53,13 +52,13 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `exam_id, date`
 
-⚠️ **This relation is in 1NF but NOT in 2NF or 3NF**
+ **This relation is in 1NF but NOT in 2NF or 3NF**
 
 ### Decomposition:
-#### ✅ EXAM_INFO:
+####  EXAM_INFO:
 - `exam_id (PK)`, `exam_name`, `duration` — **in 3NF**
 
-#### ✅ EXAM_SCHEDULE:
+####  EXAM_SCHEDULE:
 - `exam_id (FK)`, `date` — **in 3NF**
 
 ---
@@ -73,7 +72,7 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `center_id`
 
-✅ **This relation is in 1NF, 2NF, and 3NF**
+ **This relation is in 1NF, 2NF, and 3NF**
 
 ---
 
@@ -86,13 +85,13 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `staff_id, assigned_date`
 
-⚠️ **This relation is in 1NF but NOT in 2NF or 3NF**
+ **This relation is in 1NF but NOT in 2NF or 3NF**
 
 ### Decomposition:
-#### ✅ CENTERSTAFF_INFO:
+####  CENTERSTAFF_INFO:
 - `staff_id (PK)`, `name`, `role`, `phone`, `age`, `gender` — **in 3NF**
 
-#### ✅ CENTERSTAFF1:
+####  CENTERSTAFF1:
 - `staff_id (FK)`, `assigned_date` — **in 3NF**
 
 ---
@@ -106,7 +105,7 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `{ticket_id, exam_id}`
 
-✅ **This relation is in 1NF, 2NF, and 3NF**
+ **This relation is in 1NF, 2NF, and 3NF**
 
 ---
 
@@ -119,7 +118,7 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `{student_id, exam_id}`
 
-✅ **This relation is in 1NF, 2NF, and 3NF**
+ **This relation is in 1NF, 2NF, and 3NF**
 
 ---
 
@@ -132,7 +131,7 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `{center_id, date, session}`
 
-✅ **This relation is in 1NF, 2NF, and 3NF**
+ **This relation is in 1NF, 2NF, and 3NF**
 
 ---
 
@@ -145,8 +144,8 @@ This document outlines the normalization process for the **NTA Exam Management S
 ### Candidate Key:  
 - `{student_id, exam_id}`
 
-✅ **This relation is in 1NF, 2NF, and 3NF**
+ **This relation is in 1NF, 2NF, and 3NF**
 
 ---
 
-> ✅ **Note**: All final decomposed relations eliminate partial and transitive dependencies, ensuring they are in **Third Normal Form (3NF)**.
+>  **Note**: All final decomposed relations eliminate partial and transitive dependencies, ensuring they are in **Third Normal Form (3NF)**.
